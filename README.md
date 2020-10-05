@@ -1,4 +1,4 @@
 # cbz-reader
 Comics (.cbz) reader
 
-A basic .cbz reader made in Python 3
+A basic .cbz reader made in Python 3 and PyQt5
