@@ -41,13 +41,18 @@ class Window(QMainWindow):
         widget.setLayout(layout)
         self.setCentralWidget(widget)
 
+
+    def load_and_show_image(self):
+        self.label.setPixmap(QPixmap("tmp/" + self.dropdown.currentText()))
+
+
     def show_open_dialog(self):
         filename, _ = QFileDialog.getOpenFileName(None, "Open a file...", "", "Comics (*.cbz)")
 
         if filename == None:
             return
 
-        self.dropdown.clear();
+        self.dropdown.clear()
 
         with ZipFile(filename, 'r') as zip_obj:
 
@@ -58,15 +63,14 @@ class Window(QMainWindow):
                 self.dropdown.addItem(zip_filename)
                 zip_obj.extract(zip_filename, "tmp")
 
-    def load_and_show_image(self):
-        self.label.setPixmap(QPixmap("tmp/" + self.dropdown.currentText()))
+        self.load_and_show_image()
 
 
 def main():
     app = QApplication([])
 
-    window = Window();
-    window.show();
+    window = Window()
+    window.show()
 
     sys.exit(app.exec_())
 
