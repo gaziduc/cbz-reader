@@ -6,5 +6,5 @@ A basic .cbz reader made in Python 3 and PyQt5
 ## Usage
 
 ```shell
-./main.py
+python main.py
 ```
